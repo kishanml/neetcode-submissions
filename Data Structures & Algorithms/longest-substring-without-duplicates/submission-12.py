@@ -1,0 +1,26 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        
+
+        n = len(s)
+        i =0
+        j =0
+
+        curSet = set()
+        longestSubstringLen = float('-inf')
+
+        while j<n:
+
+            if s[j] not in curSet:
+                curSet.add(s[j])
+                j+=1
+            else:
+                longestSubstringLen = max(longestSubstringLen, j-i)
+                curSet = set()
+                i = j
+               
+
+            # print(i,j,curSet, longestSubstringLen)
+
+        return longestSubstringLen
+                
